@@ -1,8 +1,3 @@
--- Create user -------------------
-CREATE USER oracle_lab IDENTIFIED BY "q1w2e3";
-GRANT ALL PRIVILEGES TO oracle_lab;
--- -------------------------------
-
 -- Create tables ------------------
 CREATE TABLE product
 (
@@ -82,19 +77,19 @@ ALTER TABLE seller
 -- alter session set nls_date_format = 'dd-MON-yyyy hh24:mi:ss';
 
 INSERT INTO tare (name, capacity, description)
-VALUES ('Small Corrugated Box', 0.5, 'Several layers of paper fibre give the corrugated box the strength properties.')
+VALUES ('Small Corrugated Box', 0.5, 'Several layers of paper fibre give the corrugated box the strength properties.');
 
 INSERT INTO tare (name, capacity, description)
-VALUES ('Medium Corrugated Box', 1, 'Several layers of paper fibre give the corrugated box the strength properties.')
+VALUES ('Medium Corrugated Box', 1, 'Several layers of paper fibre give the corrugated box the strength properties.');
 
 INSERT INTO tare (name, capacity, description)
-VALUES ('Large Corrugated Box', 1.5, 'Several layers of paper fibre give the corrugated box the strength properties.')
+VALUES ('Large Corrugated Box', 1.5, 'Several layers of paper fibre give the corrugated box the strength properties.');
 
 INSERT INTO tare (name, capacity, description)
-VALUES ('Small Boxboard', 0.1, 'It does not have the wavy middle layer (corrugating medium) to add box strength.')
+VALUES ('Small Boxboard', 0.1, 'It does not have the wavy middle layer (corrugating medium) to add box strength.');
 
 INSERT INTO tare (name, capacity, description)
-VALUES ('Medium Boxboard', 0.15, 'It does not have the wavy middle layer (corrugating medium) to add box strength.')
+VALUES ('Medium Boxboard', 0.15, 'It does not have the wavy middle layer (corrugating medium) to add box strength.');
 
 INSERT INTO tare (name, capacity, description)
 VALUES ('Large Boxboard', 0.3, 'It does not have the wavy middle layer (corrugating medium) to add box strength.');
@@ -113,25 +108,25 @@ INSERT INTO product_type (name) VALUES ('Alcohol');
 
 -- insert into product ------------
 INSERT INTO product (name, price, receipt_date, expiration_date, quantity_in_stock, tare_id, product_type_id)
-VALUES ('apples', 37.20, to_date('1-9-2017', 'dd-mm-yyyy'), to_date('01-12-2017', 'dd-mm-yyyy'), 500, 4, 8);
+VALUES ('apples', 37.20, to_date('1-9-2017', 'dd-mm-yyyy'), to_date('01-12-2017', 'dd-mm-yyyy'), 500, 4, 7);
 
 INSERT INTO product (name, price, receipt_date, expiration_date, quantity_in_stock, tare_id, product_type_id)
-VALUES ('apples', 80.00, to_date('1-9-2017', 'dd-mm-yyyy'), to_date('1-12-2017', 'dd-mm-yyyy'), 280, NULL, 8);
+VALUES ('apples', 80.00, to_date('1-9-2017', 'dd-mm-yyyy'), to_date('1-12-2017', 'dd-mm-yyyy'), 280, NULL, 1);
 
 INSERT INTO product (name, price, receipt_date, expiration_date, quantity_in_stock, tare_id, product_type_id)
-VALUES ('tomato', 28.20, to_date('1-9-2017', 'dd-mm-yyyy'), to_date('1-12-2017', 'dd-mm-yyyy'), 2304, 5, 9);
+VALUES ('tomato', 28.20, to_date('1-9-2017', 'dd-mm-yyyy'), to_date('1-12-2017', 'dd-mm-yyyy'), 2304, 5, 2);
 
 INSERT INTO product (name, price, receipt_date, expiration_date, quantity_in_stock, tare_id, product_type_id)
-VALUES ('potato', 24.7, to_date('1-2-2017', 'dd-mm-yyyy'), to_date('1-10-2017', 'dd-mm-yyyy'), 35, 5, 9);
+VALUES ('potato', 24.7, to_date('1-2-2017', 'dd-mm-yyyy'), to_date('1-10-2017', 'dd-mm-yyyy'), 35, 5, 2);
 
 INSERT INTO product (name, price, receipt_date, expiration_date, quantity_in_stock, tare_id, product_type_id)
-VALUES ('sugar', 32.52, to_date('1-2-2016', 'dd-mm-yyyy'), to_date('1-2-2018', 'dd-mm-yyyy'), 23000, 7, NULL);
+VALUES ('sugar', 32.52, to_date('1-2-2016', 'dd-mm-yyyy'), to_date('1-2-2018', 'dd-mm-yyyy'), 23000, 5, NULL);
 
 INSERT INTO product (name, price, receipt_date, expiration_date, quantity_in_stock, tare_id, product_type_id)
-VALUES ('sugar', 64.35, to_date('20-2-2017', 'dd-mm-yyyy'), to_date('20-2-2019', 'dd-mm-yyyy'), 3000, 4, NULL);
+VALUES ('sugar', 64.35, to_date('20-2-2017', 'dd-mm-yyyy'), to_date('20-2-2019', 'dd-mm-yyyy'), 3000, 3, NULL);
 
 INSERT INTO product (name, price, receipt_date, expiration_date, quantity_in_stock, tare_id, product_type_id)
-VALUES ('apple juice', 2.03, to_date('1-8-2017', 'dd-mm-yyyy'), to_date('1-3-2018', 'dd-mm-yyyy'), 800, 7, 14);
+VALUES ('apple juice', 2.03, to_date('1-8-2017', 'dd-mm-yyyy'), to_date('1-3-2018', 'dd-mm-yyyy'), 800, 5, 7);
 -- --------------------------------
 
 -- insert into seller -------------
@@ -161,21 +156,21 @@ VALUES ('Pam', 'Frank', to_date('23-6-2017', 'dd-mm-yyyy'), NULL , 'a');
 -- --------------------------------
 
 -- insert into selling ------------
-INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (5, 5, 2, (SELECT price from product WHERE id = 5));
-INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (1, 3, 3, (SELECT price from product WHERE id = 3));
-INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (5, 3, 4, (SELECT price from product WHERE id = 3));
-INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (2, 5, 3, (SELECT price from product WHERE id = 5));
-INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (5, 7, 3, (SELECT price from product WHERE id = 7));
-INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (2, 4, 1, (SELECT price from product WHERE id = 4));
-INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (1, 8, 2, (SELECT price from product WHERE id = 8));
-INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (7, 4, 3, (SELECT price from product WHERE id = 4));
-INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (8, 8, 3, (SELECT price from product WHERE id = 8));
-INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (1, 3, 2, (SELECT price from product WHERE id = 3));
-INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (3, 7, 4, (SELECT price from product WHERE id = 7));
-INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (3, 4, 4, (SELECT price from product WHERE id = 4));
-INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (1, 4, 2, (SELECT price from product WHERE id = 4));
-INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (8, 9, 2, (SELECT price from product WHERE id = 9));
-INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (5, 7, 3, (SELECT price from product WHERE id = 7));
+INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (5, 3, 2, (SELECT price from product WHERE id = 3));
+INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (1, 1, 3, (SELECT price from product WHERE id = 1));
+INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (5, 1, 4, (SELECT price from product WHERE id = 1));
+INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (2, 3, 3, (SELECT price from product WHERE id = 3));
+INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (5, 5, 3, (SELECT price from product WHERE id = 5));
+INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (2, 2, 1, (SELECT price from product WHERE id = 2));
+INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (1, 6, 2, (SELECT price from product WHERE id = 6));
+INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (7, 2, 3, (SELECT price from product WHERE id = 2));
+INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (8, 6, 3, (SELECT price from product WHERE id = 6));
+INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (1, 1, 2, (SELECT price from product WHERE id = 1));
+INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (3, 5, 4, (SELECT price from product WHERE id = 5));
+INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (3, 2, 4, (SELECT price from product WHERE id = 2));
+INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (1, 2, 2, (SELECT price from product WHERE id = 2));
+INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (8, 7, 2, (SELECT price from product WHERE id = 7));
+INSERT INTO selling (seller_id, product_id, quantity, price) VALUES (5, 5, 3, (SELECT price from product WHERE id = 5));
 -- --------------------------------
 
 -- Change category a to b ---------

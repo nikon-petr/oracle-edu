@@ -1,7 +1,7 @@
 -- 1 ------------------------------
 DECLARE
   to_search PRODUCT_TYPE.NAME%TYPE := 'sweets';
-  to_update PRODUCT_TYPE.NAME%TYPE := 'Sweets';
+  to_update PRODUCT_TYPE.NAME%TYPE := 'Another sweets';
 BEGIN
 
   UPDATE PRODUCT_TYPE
@@ -31,3 +31,4 @@ BEGIN
     END LOOP;
   END LOOP;
 END;
+-- --------------------------------

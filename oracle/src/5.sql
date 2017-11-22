@@ -211,10 +211,8 @@ DECLARE
 
   TYPE seller_list IS TABLE OF sellers_cursor%ROWTYPE INDEX BY VARCHAR2(20);
   sellers seller_list;
-  counter INTEGER := 0;
 BEGIN
   FOR i IN sellers_cursor LOOP
-    counter := counter + 1;
     sellers(rowidtonchar(i.ROWID)) := i;
     DBMS_OUTPUT.put_line(sellers(i.ROWID).ROWID || ': ' || sellers(i.ROWID).FIRST_NAME || ' ' || sellers(i.ROWID).LAST_NAME);
   END LOOP;

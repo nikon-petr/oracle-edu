@@ -99,7 +99,6 @@ COMMIT;
 
 -- 7 ------------------------------
 -- default read write (not supported for the user SYS)
-ALTER SESSION SET current_schema = ORACLE_LAB;
 SET TRANSACTION READ ONLY NAME 'read_only_transaction';
 
 UPDATE PRODUCT

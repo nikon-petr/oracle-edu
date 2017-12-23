@@ -18,7 +18,7 @@ CREATE OR REPLACE FUNCTION salling_for_last_month(s IN NUMBER)
   END;
 
 BEGIN
-  dbms_output.put_line(salling_for_last_month(5));
+  dbms_output.put_line(salling_for_last_month(2));
 END;
 -- --------------------------------
 

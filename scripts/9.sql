@@ -118,6 +118,14 @@ ALTER INDEX hit_date_index NOMONITORING USAGE;
 SELECT index_name, used FROM v$object_usage
 WHERE index_name = 'HIT_DATE_INDEX';
 
+ALTER INDEX hit_date_index UNUSABLE;
+
+EXPLAIN PLAN FOR
+SELECT *
+FROM heap_index_table
+WHERE SOME_DATE = to_date('2017-11-06', 'yyyy-mm-dd');
+SELECT * FROM TABLE (DBMS_XPLAN.DISPLAY);
+
 -- check hit_text_index
 SELECT * FROM text_table WHERE contains(TEXT, 'решетка') > 0;
 -- --------------------------------
@@ -132,7 +140,7 @@ ALTER INDEX product_name MONITORING USAGE;
 SELECT NAME AS PRODUCT_NAME_OF_TOP_3
 FROM
   (
-    SELECT /* INDEX(PRODUCT, PRODUCT_NAME) */
+    SELECT /*+ INDEX(PRODUCT, PRODUCT_NAME) */
       PRODUCT.NAME,
       count(PRODUCT.NAME)
     FROM SELLING

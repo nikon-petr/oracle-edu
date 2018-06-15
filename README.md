@@ -30,7 +30,7 @@ Oracle educational project
     * Update by cursor and implicit cursor attributes
     * Print by cursor
 7. Transactions
-    * Rolback and savepoints
+    * Rollback and savepoints
     * Deffered and immediate constraints
     * Read commited
     * Non-repeatable read

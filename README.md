@@ -1,5 +1,5 @@
 # Oracle Edu
-Oracle educational project
+Oracle educational project : an Overview
 
 ## Sections
 1. ER-diagram
